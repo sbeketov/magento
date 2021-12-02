@@ -4,8 +4,8 @@ namespace Magetik\SampleModule\Controller\Index;
 
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\Controller\Result\Raw;
 use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\Controller\ResultInterface;
 
 /**
  * Class Index
@@ -29,11 +29,8 @@ class Index implements HttpGetActionInterface
     /**
      * @inheritdoc
      */
-    public function execute(): Raw
+    public function execute(): ResultInterface
     {
-        /** @var Raw $result */
-        $result = $this->resultFactory->create(ResultFactory::TYPE_RAW);
-        $result->setContents('Hello world');
-        return $result;
+        return $this->resultFactory->create(ResultFactory::TYPE_PAGE);
     }
 }
