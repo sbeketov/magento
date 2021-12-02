@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <add id="Magetik_SampleModule::magetik" title="Magetik"
+             module="Magetik_SampleModule" resource="Magetik_SampleModule::magetik"
+             sortOrder="900" translate="title" action="magetik"/>
+    </menu>
+</config>
