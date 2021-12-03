@@ -7,4 +7,6 @@
             </argument>
         </arguments>
     </type>
+    <preference for="Magetik\SampleModule\Api\Data\ItemInterface" type="Magetik\SampleModule\Model\Item"/>
+    <preference for="Magetik\SampleModule\Api\ItemRepositoryInterface" type="Magetik\SampleModule\Model\ItemRepository"/>
 </config>
