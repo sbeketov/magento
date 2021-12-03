@@ -2,8 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
     <group id="default">
         <job name="magetikAddItem" instance="Magetik\SampleModule\Cron\AddItem" method="execute">
-            <!-- Звезды определяют период каждые митуту - час - день - месяц - день недели  -->
-            <schedule>* * * * *</schedule>
+            <config_path>magetik/general/cron_expression</config_path>
         </job>
     </group>
 </config>
