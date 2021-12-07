@@ -32,7 +32,7 @@
             </argument>
         </arguments>
     </virtualType>
-    <type name="Magetik\SampleModule\Console\Command\AddItem">
+    <type name="Magetik\SampleModule\Observer\Logger">
         <arguments>
             <argument name="logger" xsi:type="object">MagetikLogger</argument>
         </arguments>
