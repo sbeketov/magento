@@ -1,6 +1,7 @@
 <?php
 /** @var \Magetik\SampleModule\Block\Hello $block */
 ?>
+<?= $block->getLabel(); ?>
 <?php foreach ($block->getItems() as $item): ?>
     <p>
         <?= $item->getName(); ?>: <?= $item->getDescription()?>
