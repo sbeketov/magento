@@ -3,6 +3,7 @@
 namespace Magetik\SampleModule\Console\Command;
 
 use Magento\Framework\Console\Cli;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
 use Magetik\SampleModule\Model\ItemFactory;
 use Symfony\Component\Console\Input\InputArgument;
@@ -13,14 +14,15 @@ class AddItem extends Command
 {
     const INPUT_KEY_NAME = 'name';
     const INPUT_KEY_DESCRIPTION = 'description';
-    /**
-     * @var ItemFactory $itemFactory
-     */
-    private  $itemFactory;
 
-    public function __construct(ItemFactory $itemFactory)
+    private ItemFactory  $itemFactory;
+
+    private LoggerInterface  $logger;
+
+    public function __construct(ItemFactory $itemFactory, LoggerInterface $logger)
     {
         $this->itemFactory = $itemFactory;
+        $this->logger = $logger;
         parent::__construct();
     }
 
@@ -46,6 +48,8 @@ class AddItem extends Command
         $item->setDescription($input->getArgument(self::INPUT_KEY_DESCRIPTION));
         $item->setIsObjectNew(true);
         $item->save();
+
+        $this->logger->debug('Item was created!');
         return Cli::RETURN_SUCCESS;
     }
 }
