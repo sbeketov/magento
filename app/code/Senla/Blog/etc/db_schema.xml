@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="senla_blog_categories" resource="default" engine="innodb" comment="Senla Blog Categories">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Category id"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="100" comment="Title of category"/>
+        <column xsi:type="varchar" name="slug" nullable="false" length="100" comment="Title of category"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="senla_blog_posts" resource="default" engine="innodb" comment="Senla Blog Posts">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Post id"/>
+        <column xsi:type="int" name="category_id" unsigned="true" nullable="false"
+                comment="Category id"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="100" comment="Title of post"/>
+        <column xsi:type="varchar" name="slug" nullable="false" length="100" comment="Slug of post"/>
+        <column xsi:type="varchar" name="preview_text" nullable="true" comment="Preview Text of post"/>
+        <column xsi:type="varchar" name="text" nullable="false" comment="Text of post"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="COMPANY_CREDIT_COMPANY_ID_COMPANY_ENTITY_ID"
+                    table="senla_blog_posts" column="category_id"
+                    referenceTable="senla_blog_categories" referenceColumn="id"
+                    onDelete="NO ACTION"/>
+    </table>
+    <table name="senla_blog_tags" resource="default" engine="innodb" comment="Senla Blog Categories">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Tag id"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="100" comment="Title of tag"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>
