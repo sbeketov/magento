@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <add id="Senla_Blog::blog" title="Blog"
+             module="Senla_Blog" resource="Senla_Blog::blog"
+             sortOrder="900" translate="title" action="blog/index"/>
+        <add id="Senla_Blog::blog_categories" title="Categories"
+             module="Senla_Blog" resource="Senla_Blog::blog" parent="Senla_Blog::blog"
+             sortOrder="10" translate="title" action="blog/categories"/>
+        <add id="Senla_Blog::blog_posts" title="Posts"
+             module="Senla_Blog" resource="Senla_Blog::blog" parent="Senla_Blog::blog"
+             sortOrder="20" translate="title" action="blog/posts"/>
+        <add id="Senla_Blog::configuration" title="Configuration"
+             module="Senla_Blog" resource="Senla_Blog::blog" parent="Senla_Blog::blog"
+             sortOrder="99" translate="title" action="adminhtml/system_config/edit/section/blog"/>
+    </menu>
+</config>
